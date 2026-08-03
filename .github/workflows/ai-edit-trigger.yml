@@ -1,0 +1,12 @@
+name: Trigger Central AI Edit Workflow
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  call-central-ai-edit:
+    if: github.event.label.name == 'ai-edit'
+    # Updated to point to .GITHUB instead of .github
+    uses: YOUR-ORG-NAME/.GITHUB/.GITHUB/workflows/ai-edit.yml@main
+    secrets: inherit
