@@ -1,4 +1,4 @@
-name: Trigger Central AI Edit Workflow
+name: Trigger Organisation AI Edit
 
 on:
   issues:
@@ -11,9 +11,9 @@ permissions:
   issues: write
 
 jobs:
-  call-central-ai-edit:
+  call-minimax-agent:
     if: github.event.label.name == 'ai-edit'
 
-    uses: CafeGlow/.GITHUB/.github/workflows/ai-edit.yml@main
+    uses: CafeGlow/.GITHUB/.github/workflows/minimax-aider.yml@main
 
     secrets: inherit
