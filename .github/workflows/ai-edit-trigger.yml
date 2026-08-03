@@ -1,62 +1,36 @@
-name: Mobile Claude Engineer Trigger
-
-on:
-  issues:
-    types: [labeled]
-
-jobs:
-  run-claude-engineer:
-    # Triggers on your phone whenever you apply the 'run-agent' label to an Issue
-    if: github.event.label.name == 'run-agent'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-
-    steps:
-      - name: Checkout Code
+      - name: Checkout Code Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Checkout Claude Engineer Framework
+        uses: actions/checkout@v4
+        with:
+          repository: 'Doriandarko/claude-engineer'
+          path: 'agent_dir'
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Clone Claude Engineer
+      - name: Install Agent Dependencies
         run: |
-          git clone https://github.com/D4V150N/claude-engineer.git agent_dir
           cd agent_dir
           pip install -r requirements.txt
 
       - name: Execute Claude Engineer via MiniMax M3
         env:
-          # Point the Anthropic SDK to MiniMax Anthropic-compatible endpoint
           ANTHROPIC_BASE_URL: "https://api.minimax.io/anthropic"
           ANTHROPIC_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
-          # Pass MiniMax-M3 as the model to Claude Engineer
           MODEL_NAME: "MiniMax-M3"
           CE_MODEL: "MiniMax-M3"
-          # Issue context passed down
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           cd agent_dir
           
-          # Formulate the automated prompt from the GitHub Issue details
-          PROMPT="Objective: Fix/Implement this issue from GitHub Mobile. Title: $ISSUE_TITLE. Description: $ISSUE_BODY"
+          PROMPT="Objective: Fix or implement the request described in this GitHub issue. Issue Title: $ISSUE_TITLE. Description: $ISSUE_BODY"
           
-          # Run Claude Engineer non-interactively against the parent codebase
-          python -m main --project-path ../ --prompt "$PROMPT" --model $MODEL_NAME
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "feat: automated fix via MiniMax-M3 Claude Engineer"
-          title: "AI Fix (M3): ${{ github.event.issue.title }}"
-          body: |
-            Automated PR created via **Claude Engineer** using **MiniMax-M3** reasoning model.
-            Triggered from GitHub Mobile Issue #${{ github.event.issue.number }}.
-          branch: "ai-m3-fix-issue-${{ github.event.issue.number }}"
+          # Launch Claude Engineer CLI against the target codebase in parent folder
+          python ce3.py --project-path ../ --prompt "$PROMPT"
