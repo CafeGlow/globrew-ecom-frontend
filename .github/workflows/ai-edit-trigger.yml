@@ -1,19 +1,19 @@
-# name: Trigger Organisation AI Edit
+name: Trigger Organisation AI Edit
 
-# on:
-#   issues:
-#     types:
-#       - labeled
+on:
+  issues:
+    types:
+      - labeled
 
-# permissions:
-#   contents: write
-#   pull-requests: write
-#   issues: write
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
 
-# jobs:
-#   call-minimax-agent:
-#     if: github.event.label.name == 'ai-edit'
+jobs:
+  call-minimax-agent:
+    if: github.event.label.name == 'ai-edit'
 
-#     uses: CafeGlow/.GITHUB/.github/workflows/minimax-aider.yml@main
+    uses: CafeGlow/.GITHUB/.github/workflows/ai-edit.yml@main
 
-#     secrets: inherit
+    secrets: inherit
