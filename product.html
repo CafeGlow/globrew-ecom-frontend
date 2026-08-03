@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Formula — JAGAVE</title>
+  <meta name="description" content="A daily morning ritual of freeze-dried Arabica, purposeful peptides, and glutathione — composed for inner radiance and an unhurried start to the day." />
+  <meta name="theme-color" content="#FDFBF7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" data-header>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#formula">Formula</a>
+      <a href="index.html#ritual">Ritual</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#story">Story</a>
+    </nav>
+    <a class="brand" href="index.html">JAGAVE<sup>JG</sup></a>
+    <div class="nav-actions">
+      <button class="icon-btn" data-open-search aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="bag-btn" data-open-cart aria-label="Open bag">
+        Bag
+        <span class="bag-count" data-bag-count style="display:none">0</span>
+      </button>
+      <button class="icon-btn menu-toggle" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Mobile drawer ===== -->
+  <div class="mobile-drawer" aria-hidden="true">
+    <a href="index.html#formula">Formula</a>
+    <a href="index.html#ritual">Ritual</a>
+    <a href="shop.html">Shop</a>
+    <a href="index.html#story">Story</a>
+  </div>
+
+  <main>
+    <!-- ===== PDP container (rendered by script.js) ===== -->
+    <article data-pdp></article>
+
+    <!-- ===== Related products ===== -->
+    <section class="section-pad bg-cream">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">— Continue the Ritual</span>
+            <h2 class="h-section reveal" style="margin-top:18px">Other <em>formulas</em>.</h2>
+          </div>
+          <a class="btn-link reveal" href="shop.html">All formulas →</a>
+        </div>
+        <div class="product-grid" data-related></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-foot">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">JAGAVE<sup style="font-family:var(--font-mono);font-size:12px;color:var(--gold);margin-left:6px">JG</sup></div>
+        <p class="foot-tagline">A daily morning ritual of Arabica, peptides, and glutathione — slowly brewed for inner radiance.</p>
+      </div>
+      <div>
+        <h4>Formula</h4>
+        <ul>
+          <li><a href="product.html?handle=arabica-morning-30">Arabica Morning</a></li>
+          <li><a href="product.html?handle=arabica-morning-30-hazelnut">Hazelnut Infusion</a></li>
+          <li><a href="product.html?handle=discovery-pack-10">Discovery Pack</a></li>
+          <li><a href="product.html?handle=jagave-precision-spoon">Precision Spoon</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="index.html#story">Our Story</a></li>
+          <li><a href="index.html#ritual">The Ritual</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 JAGAVE Studio · Kyoto &amp; Bengaluru</span>
+      <span>Privacy · Terms · Imprint</span>
+    </div>
+  </footer>
+
+  <!-- ===== Search overlay ===== -->
+  <div class="search-overlay" aria-hidden="true">
+    <div class="search-overlay__inner">
+      <div class="search-overlay__top">
+        <span class="mono">— Search the studio</span>
+        <button class="icon-btn search-overlay__close" aria-label="Close search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <input class="search-overlay__input" type="search" placeholder="What are you searching for?" />
+      <div class="search-overlay__hints">
+        <a href="#">Arabica</a>
+        <a href="#">Hazelnut</a>
+        <a href="#">Discovery</a>
+        <a href="#">Subscription</a>
+        <a href="#">Spoon</a>
+      </div>
+      <div class="search-overlay__results"></div>
+    </div>
+  </div>
+
+  <!-- ===== Cart drawer ===== -->
+  <div class="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="drawer" aria-label="Your bag">
+    <div class="drawer__head">
+      <h3>Your Bag (<span data-bag-count>0</span> items)</h3>
+      <button class="drawer__close" aria-label="Close bag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer__body">
+      <div class="drawer__items"></div>
+      <p class="drawer__empty" style="display:none">Your bag is empty — begin the morning ritual.</p>
+      <div class="progress">
+        <span class="progress__label">Add ₹0 more for Complimentary Express Shipping</span>
+        <div class="progress__bar"><div class="progress__fill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="drawer__foot">
+      <div class="drawer__row"><span>Subtotal</span><span class="drawer__subtotal">₹0</span></div>
+      <div class="drawer__row"><span>Total</span><span class="drawer__total">₹0</span></div>
+      <button class="btn btn-primary" data-checkout>Proceed to Checkout →</button>
+      <span class="drawer__subnote">Taxes &amp; shipping calculated at checkout</span>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
