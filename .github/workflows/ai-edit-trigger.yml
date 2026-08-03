@@ -7,5 +7,5 @@ on:
 jobs:
   call-central-ai-edit:
     if: github.event.label.name == 'ai-edit'
-    uses: CafeGlow/.GITHUB/.github/workflows/ai-edit.yml@main
+    uses: CafeGlow/.github/.github/workflows/ai-edit.yml@main
     secrets: inherit
