@@ -37,7 +37,15 @@
 /* ----- Reset ----- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Leaves room for the fixed header on every anchor jump
+     (in-page links + cross-page links like shop.html → index.html#story). */
+  scroll-padding-top: 80px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 body {
   background: var(--ivory);
   color: var(--espresso);

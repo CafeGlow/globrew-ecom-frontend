@@ -701,9 +701,17 @@
     const onScroll = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        const rect = pin.parentElement.getBoundingClientRect();
+        const sectionRect = pin.parentElement.getBoundingClientRect();
+        const pinRect = pin.getBoundingClientRect();
         const total = pin.scrollWidth - window.innerWidth;
-        const progress = Math.max(0, Math.min(1, -rect.top / Math.max(rect.height - window.innerHeight, 1)));
+        // Key progress to the pin itself, not the wrapping section:
+        // the pin sits below a heading + spacer, so the old math had it
+        // already ~12% translated before its top reached the viewport top.
+        const pinTopInSection = pinRect.top - sectionRect.top;
+        const scrollable = pinRect.height - window.innerHeight;
+        const progress = scrollable > 0
+          ? Math.max(0, Math.min(1, (-sectionRect.top - pinTopInSection) / scrollable))
+          : 0;
         pin.style.transform = `translate3d(${-progress * total}px, 0, 0)`;
       });
     };
@@ -729,11 +737,12 @@
     items.forEach((el) => io.observe(el));
   }
 
-  /* ---------- Smooth scroll (Lenis-like minimal shim) ---------- */
+  /* ---------- Smooth scroll (in-page anchors only) ---------- */
   function initSmoothScroll() {
+    // Defer to the browser for the actual scrolling + offset.
+    // scroll-padding-top in style.css handles the fixed-header offset for both
+    // this handler and cross-page links (e.g. shop.html → index.html#story).
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return;
-    // Use native smooth scrolling plus a soft momentum tween for in-page anchors.
     $$('a[href^="#"]').forEach((a) => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -741,28 +750,36 @@
         const target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
-        const headerH = $('.site-header')?.offsetHeight || 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - headerH - 12;
-        window.scrollTo({ top, behavior: 'smooth' });
+        target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        // Keep the URL hash in sync for sharing / bookmarking without
+        // re-triggering the browser's native anchor jump.
+        if (window.history && history.replaceState) history.replaceState(null, '', id);
       });
     });
   }
 
-  /* ---------- GSAP-style hero entrance (using WAAPI) ---------- */
+  /* ---------- Hero entrance (staggered fade-in) ---------- */
   function initHeroMotion() {
     const hero = $('.hero');
     if (!hero) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // .reveal items are animated by initReveal via the .is-in CSS transition;
+    // we just stagger them with transition-delay. Non-reveal items (e.g.
+    // .hero__meta span) need their own WAAPI since they have no transition.
     const targets = $$('.hero .reveal, .hero__meta span', hero);
     targets.forEach((el, i) => {
       if (reduce) { el.classList.add('is-in'); return; }
-      el.animate(
-        [
-          { opacity: 0, transform: 'translateY(28px)' },
-          { opacity: 1, transform: 'translateY(0)' },
-        ],
-        { duration: 900, delay: 80 * i, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'both' }
-      );
+      if (el.classList.contains('reveal')) {
+        el.style.transitionDelay = `${80 * i}ms`;
+      } else {
+        el.animate(
+          [
+            { opacity: 0, transform: 'translateY(28px)' },
+            { opacity: 1, transform: 'translateY(0)' },
+          ],
+          { duration: 900, delay: 80 * i, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'both' }
+        );
+      }
     });
   }
 
@@ -806,7 +823,6 @@
     initSearch(cart);
     initQuickAdd(cart);
     initSmoothScroll();
-    initReveal();
     initHeroMotion();
     initTrack();
 
@@ -817,10 +833,15 @@
     });
     syncBagCount(cart);
 
-    // Page-specific rendering
+    // Page-specific rendering — these add fresh .reveal nodes that
+    // initReveal() must observe, so they have to run first.
     renderShopPreview(cart);
     renderPLP(cart);
     renderPDP(cart);
+
+    // Reveal observer runs last so dynamically rendered cards (PLP grid,
+    // shop preview, PDP related) fade in instead of staying at opacity: 0.
+    initReveal();
   }
 
   if (document.readyState === 'loading') {
