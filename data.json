@@ -1,0 +1,214 @@
+{
+  "store": {
+    "id": "store_jagave",
+    "name": "JAGAVE",
+    "default_region_id": "in",
+    "currency": { "code": "INR", "symbol": "₹" },
+    "free_shipping_threshold": 2300
+  },
+  "products": [
+    {
+      "id": "prod_arabica_morning_30",
+      "handle": "arabica-morning-30",
+      "title": "Arabica Morning Coffee Mix",
+      "subtitle": "Daily Radiance",
+      "tag": "Best Seller",
+      "category": "formula",
+      "formula_no": "001",
+      "description": "A purposeful morning ritual of freeze-dried Arabica, purposeful peptides, and glutathione — crafted to support inner radiance, hydration-focused mornings, and a soft, surface-smooth complexion from within.",
+      "images": [
+        { "id": "img_arabica_01", "alt": "Sachet packaging", "tone": "espresso" },
+        { "id": "img_arabica_02", "alt": "Powder texture close-up", "tone": "cream" },
+        { "id": "img_arabica_03", "alt": "Poured morning mug", "tone": "ivory" },
+        { "id": "img_arabica_04", "alt": "Daily box", "tone": "cream-deep" }
+      ],
+      "variants": [
+        {
+          "id": "var_arabica_30_classic",
+          "title": "Classic Arabica",
+          "flavour": "Classic Arabica",
+          "delivery": "30-Sachet Monthly Box",
+          "subscription": true,
+          "subscription_label": "Save 15% · Pause anytime",
+          "price": 1850,
+          "compare_at_price": 2180,
+          "sku": "JGV-AM-30-CLA"
+        },
+        {
+          "id": "var_arabica_30_hazelnut",
+          "title": "Hazelnut Infusion",
+          "flavour": "Hazelnut Infusion",
+          "delivery": "30-Sachet Monthly Box",
+          "subscription": true,
+          "subscription_label": "Save 15% · Pause anytime",
+          "price": 2050,
+          "compare_at_price": 2380,
+          "sku": "JGV-AM-30-HAZ"
+        },
+        {
+          "id": "var_arabica_10_classic",
+          "title": "Classic Arabica",
+          "flavour": "Classic Arabica",
+          "delivery": "10-Sachet Trial Pack",
+          "subscription": false,
+          "subscription_label": null,
+          "price": 850,
+          "compare_at_price": null,
+          "sku": "JGV-AM-10-CLA"
+        }
+      ],
+      "specs": {
+        "format": "10g Sachet",
+        "base": "Freeze-dried Arabica",
+        "peptides": "2.8g",
+        "glutathione": "500mg"
+      },
+      "ingredients": [
+        { "name": "Freeze-dried Arabica", "origin": "Coorg, India", "dose": "6.5g" },
+        { "name": "Collagen Peptides", "origin": "Bovine, pasture-raised", "dose": "2.8g" },
+        { "name": "L-Glutathione", "origin": "Fermented, Japan", "dose": "500mg" },
+        { "name": "Hyaluronic Acid", "origin": "Bio-fermented", "dose": "120mg" },
+        { "name": "Vitamin C (Ascorbic Acid)", "origin": "Acerola cherry", "dose": "60mg" }
+      ],
+      "ritual": [
+        { "step": 1, "title": "Tear", "detail": "Open one 10g sachet along the perforation." },
+        { "step": 2, "title": "Pour", "detail": "Add 150ml of warm water or steamed milk." },
+        { "step": 3, "title": "Sip", "detail": "Stir for eight seconds and enjoy the morning glow." }
+      ],
+      "shipping": "Complimentary express shipping on orders above ₹2,300. Metropolitan delivery in 1–2 business days. Rural delivery in 3–5 business days."
+    },
+    {
+      "id": "prod_arabica_morning_30_hazelnut",
+      "handle": "arabica-morning-30-hazelnut",
+      "title": "Arabica Morning — Hazelnut Infusion",
+      "subtitle": "Daily Radiance",
+      "tag": "New Ritual",
+      "category": "formula",
+      "formula_no": "002",
+      "description": "Our Arabica morning base, lifted with roasted hazelnut and a whisper of Madagascan vanilla. Designed for an everyday ritual of nourishment, hydration, and surface smoothness.",
+      "images": [
+        { "id": "img_hazelnut_01", "alt": "Hazelnut sachet", "tone": "espresso" },
+        { "id": "img_hazelnut_02", "alt": "Powder texture", "tone": "cream" },
+        { "id": "img_hazelnut_03", "alt": "Poured mug", "tone": "ivory" }
+      ],
+      "variants": [
+        {
+          "id": "var_hazelnut_30",
+          "title": "Hazelnut Infusion",
+          "flavour": "Hazelnut Infusion",
+          "delivery": "30-Sachet Monthly Box",
+          "subscription": true,
+          "subscription_label": "Save 15% · Pause anytime",
+          "price": 2050,
+          "compare_at_price": 2380,
+          "sku": "JGV-AM-30-HAZ"
+        }
+      ],
+      "specs": {
+        "format": "10g Sachet",
+        "base": "Freeze-dried Arabica + Hazelnut",
+        "peptides": "2.8g",
+        "glutathione": "500mg"
+      },
+      "ingredients": [
+        { "name": "Freeze-dried Arabica", "origin": "Coorg, India", "dose": "6.5g" },
+        { "name": "Roasted Hazelnut", "origin": "Piedmont, Italy", "dose": "1.2g" },
+        { "name": "Collagen Peptides", "origin": "Bovine, pasture-raised", "dose": "2.8g" },
+        { "name": "L-Glutathione", "origin": "Fermented, Japan", "dose": "500mg" }
+      ],
+      "ritual": [
+        { "step": 1, "title": "Tear", "detail": "Open one 10g sachet along the perforation." },
+        { "step": 2, "title": "Pour", "detail": "Add 150ml of warm milk for the creamiest bloom." },
+        { "step": 3, "title": "Sip", "detail": "Stir and enjoy an unhurried morning." }
+      ],
+      "shipping": "Complimentary express shipping on orders above ₹2,300. Metropolitan delivery in 1–2 business days."
+    },
+    {
+      "id": "prod_discovery_pack",
+      "handle": "discovery-pack-10",
+      "title": "Discovery Pack — 10 Sachets",
+      "subtitle": "First Pour",
+      "tag": "Discovery",
+      "category": "formula",
+      "formula_no": "003",
+      "description": "A one-time trial of five Classic and five Hazelnut sachets. A thoughtful way to begin your daily morning ritual.",
+      "images": [
+        { "id": "img_disc_01", "alt": "Discovery box", "tone": "cream" },
+        { "id": "img_disc_02", "alt": "Sachet array", "tone": "ivory" }
+      ],
+      "variants": [
+        {
+          "id": "var_discovery_10",
+          "title": "Classic + Hazelnut",
+          "flavour": "Classic + Hazelnut",
+          "delivery": "10-Sachet Trial Pack",
+          "subscription": false,
+          "subscription_label": null,
+          "price": 850,
+          "compare_at_price": null,
+          "sku": "JGV-DISC-10"
+        }
+      ],
+      "specs": {
+        "format": "10g Sachet",
+        "base": "Arabica · 5 Classic + 5 Hazelnut",
+        "peptides": "2.8g",
+        "glutathione": "500mg"
+      },
+      "ingredients": [
+        { "name": "Freeze-dried Arabica", "origin": "Coorg, India", "dose": "6.5g" },
+        { "name": "Collagen Peptides", "origin": "Bovine, pasture-raised", "dose": "2.8g" },
+        { "name": "L-Glutathione", "origin": "Fermented, Japan", "dose": "500mg" }
+      ],
+      "ritual": [
+        { "step": 1, "title": "Tear", "detail": "Open one 10g sachet." },
+        { "step": 2, "title": "Pour", "detail": "Stir into 150ml of warm milk or water." },
+        { "step": 3, "title": "Decide", "detail": "Choose your daily ritual and subscribe to save." }
+      ],
+      "shipping": "Complimentary express shipping on orders above ₹2,300. Metropolitan delivery in 1–2 business days."
+    },
+    {
+      "id": "prod_jagave_spoon",
+      "handle": "jagave-precision-spoon",
+      "title": "Jagave Gold Precision Spoon",
+      "subtitle": "Ritual Accessory",
+      "tag": "Accessory",
+      "category": "accessory",
+      "formula_no": "—",
+      "description": "A weighted brass spoon, hand-finished and proportioned for one sachet. Designed to live beside your morning mug.",
+      "images": [
+        { "id": "img_spoon_01", "alt": "Brass spoon", "tone": "cream-deep" },
+        { "id": "img_spoon_02", "alt": "Spoon on linen", "tone": "ivory" }
+      ],
+      "variants": [
+        {
+          "id": "var_spoon",
+          "title": "Brass",
+          "flavour": null,
+          "delivery": "Single piece",
+          "subscription": false,
+          "subscription_label": null,
+          "price": 1200,
+          "compare_at_price": null,
+          "sku": "JGV-ACC-SPOON"
+        }
+      ],
+      "specs": {
+        "format": "Hand-finished brass",
+        "base": "Solid brass, food-safe lacquer",
+        "peptides": "—",
+        "glutathione": "—"
+      },
+      "ingredients": [
+        { "name": "Solid brass body", "origin": "Jaipur, India", "dose": "32g" },
+        { "name": "Food-safe lacquer", "origin": "Hand-applied", "dose": "—" }
+      ],
+      "ritual": [
+        { "step": 1, "title": "Lift", "detail": "One level scoop, exactly 10g of blend." },
+        { "step": 2, "title": "Tap", "detail": "Tap once against the rim of the mug." },
+        { "step": 3, "title": "Stir", "detail": "Stir with intention, eight slow seconds." }
+      ],
+      "shipping": "Accessories ship within 3–5 business days, separate from formula subscriptions."
+    }
+  ]
+}
